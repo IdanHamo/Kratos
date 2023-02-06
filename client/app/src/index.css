@@ -1,3 +1,40 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;1,300&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Rubik", sans-serif;
+}
+.navList {
+  display: flex;
+}
+
+.navLink {
+  font-size: 1.2rem !important;
+  font-weight: 500 !important;
+  padding: 10px;
+}
+a {
+  text-decoration: none !important;
+  color: white !important;
+}
+
+.active {
+  color: #df204d !important;
+}
+
+.activeNav {
+  display: none;
+}
+@media only screen and (max-width: 767px) {
+  .nav-link {
+    padding: 5px !important;
+  }
+  .activeNav {
+    display: block;
+  }
+}

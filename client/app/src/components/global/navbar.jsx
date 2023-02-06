@@ -10,32 +10,51 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="navbar bg-headerImage">
-      <div className="container">
-        <div className="logo">Logo</div>
-        <div className="menu-icon" onClick={handleShowNavbar}>
-          <MenuIcon></MenuIcon>
+    <>
+      <nav className="Bar bg-headerImage">
+        <div className="logo">
+          <a href="#">Kratos</a>
         </div>
-        <div className={`nav-elements  ${showNavbar && "activeNav"}`}>
-          <ul className="navList">
-            <li className="navLink">
-              <NavLink to="/">Home</NavLink>
-            </li>
-            <li className="navLink">
-              <NavLink to="/blog">Blog</NavLink>
-            </li>
-            <li className="navLink">
-              <NavLink to="/projects">Projects</NavLink>
-            </li>
-            <li className="navLink">
-              <NavLink to="/about">About</NavLink>
-            </li>
-            <li className="navLink">
-              <NavLink to="/contact">Contact</NavLink>
-            </li>
-          </ul>
+        <ul className="links">
+          <li>
+            <a href="">Home</a>
+          </li>
+          <li>
+            <a href="">Anout</a>
+          </li>
+          <li>
+            <a href="">Hsdfome</a>
+          </li>
+          <li>
+            <a href="">sdfsd</a>
+          </li>
+        </ul>
+        <a href="" className="action_btn">
+          Get Started
+        </a>
+        <div className="toggle_btn" onClick={handleShowNavbar}>
+          <i class={showNavbar ? `fa-solid fa-xmark` : `fa-solid fa-bars`}></i>
         </div>
+      </nav>
+      <div className={`dropdown_menu ${showNavbar && "open"}`}>
+        <li>
+          <a href="">Home</a>
+        </li>
+        <li>
+          <a href="">Anout</a>
+        </li>
+        <li>
+          <a href="">Hsdfome</a>
+        </li>
+        <li>
+          <a href="">sdfsd</a>
+        </li>
+        <li>
+          <a href="" className="action_btn">
+            Get Started
+          </a>
+        </li>
       </div>
-    </nav>
+    </>
   );
 }

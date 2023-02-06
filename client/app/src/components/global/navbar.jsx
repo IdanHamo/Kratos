@@ -11,48 +11,51 @@ export default function Navbar() {
 
   return (
     <>
-      <nav className="Bar bg-headerImage">
+      <nav className="Bar">
         <div className="logo">
           <a href="#">Kratos</a>
         </div>
         <ul className="links">
           <li>
-            <a href="">Home</a>
+            <NavLink to="/">Home</NavLink>
           </li>
           <li>
-            <a href="">Anout</a>
+            <NavLink to="/about">Anout</NavLink>
           </li>
           <li>
-            <a href="">Hsdfome</a>
-          </li>
-          <li>
-            <a href="">sdfsd</a>
+            <NavLink to="/contact">Hsdfome</NavLink>
           </li>
         </ul>
-        <a href="" className="action_btn">
-          Get Started
-        </a>
+        <div>
+          <NavLink className="action_btn ml-5" to="/register">
+            Signup
+          </NavLink>
+          <NavLink className="action_btn" to="/login">
+            Login
+          </NavLink>
+        </div>
         <div className="toggle_btn" onClick={handleShowNavbar}>
           <i class={showNavbar ? `fa-solid fa-xmark` : `fa-solid fa-bars`}></i>
         </div>
       </nav>
       <div className={`dropdown_menu ${showNavbar && "open"}`}>
         <li>
-          <a href="">Home</a>
+          <NavLink to="/">Home</NavLink>
         </li>
         <li>
-          <a href="">Anout</a>
+          <NavLink to="/about">Anout</NavLink>
         </li>
         <li>
-          <a href="">Hsdfome</a>
+          <NavLink to="/contact">Hsdfome</NavLink>
         </li>
+
         <li>
-          <a href="">sdfsd</a>
-        </li>
-        <li>
-          <a href="" className="action_btn">
-            Get Started
-          </a>
+          <NavLink className="action_btn" to="/register">
+            Signup
+          </NavLink>
+          <NavLink className="action_btn" to="/login">
+            Login
+          </NavLink>
         </li>
       </div>
     </>

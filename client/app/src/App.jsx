@@ -2,6 +2,8 @@ import logo from "./logo.svg";
 import "./App.css";
 import Navbar from "./components/global/navbar";
 import Footer from "./components/global/footer";
+import { Route, Routes } from "react-router-dom";
+import Home from "./components/pages/home";
 
 function App() {
   return (
@@ -9,7 +11,11 @@ function App() {
       <header>
         <Navbar></Navbar>
       </header>
-      <div className="grow"></div>
+      <div className="grow">
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+        </Routes>
+      </div>
       <footer>
         <Footer></Footer>
       </footer>

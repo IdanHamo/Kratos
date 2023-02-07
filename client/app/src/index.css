@@ -10,10 +10,13 @@ body {
   font-family: "Rubik", sans-serif;
   width: 100vw;
   height: 100vh;
-  background-image: url('../src/images/5102637.jpg');
+  background-image: url("../src/images/bg-dark.jpg");
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+* {
+  direction: rtl;
 }
 
 li {
@@ -22,14 +25,16 @@ li {
 
 a {
   text-decoration: none !important;
-  color: black !important;
+  color: white !important;
   font-size: 1rem;
+  font-weight: bold;
 }
 a:hover {
   color: aqua;
 }
 .active {
   color: #df204d !important;
+  font-weight: bold;
 }
 
 /* Header */
@@ -95,7 +100,7 @@ header {
   top: 60px; */
   height: 0;
   /* width: 300px; */
-  background:rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(15px);
   overflow: hidden;
   transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -117,7 +122,7 @@ header {
 
 /* RESPONSIVE**/
 
-@media (max-width: 576px) {
+@media (max-width: 776px) {
   .dropdown_menu {
     left: 2rem;
     width: unset;
@@ -133,4 +138,44 @@ header {
   .dropdown_menu {
     display: block;
   }
+}
+
+.registration-container {
+}
+
+.registration-headline {
+  color: #df204d !important;
+  font-weight: bold;
+  font-size: 2rem;
+  position: relative;
+  padding: 7px;
+}
+.registration-headline::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  width: 75%;
+  height: 7px;
+
+  background-color: #df204d !important;
+  border-radius: 10px;
+}
+.registration-secondary-headline {
+  color: white !important;
+  font-weight: bold;
+  font-size: 2rem;
+}
+
+.input {
+  width: 100%;
+  border-radius: 7px;
+  height: 40px;
+}
+
+.confirmButton {
+  background-color: white;
+  color: #df204d;
+  border: 2px solid gray;
+  border-radius: 10px;
+  padding: 10px;
 }

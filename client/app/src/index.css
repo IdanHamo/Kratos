@@ -156,8 +156,7 @@ header {
   bottom: 0;
   width: 75%;
   height: 7px;
-
-  background-color: #df204d !important;
+right: 11px;  background-color: #df204d !important;
   border-radius: 10px;
 }
 .registration-secondary-headline {
@@ -170,6 +169,7 @@ header {
   width: 100%;
   border-radius: 7px;
   height: 40px;
+  padding-right: 15px;
 }
 
 .confirmButton {

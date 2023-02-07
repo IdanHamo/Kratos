@@ -1,7 +1,7 @@
 import { useFormik } from "formik";
 import Joi from "joi";
 import { useState } from "react";
-
+import httpService from "../../services/httpService";
 const Registration = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -46,6 +46,13 @@ const Registration = () => {
         email: values.email,
         password: values.password,
       };
+
+      try {
+        const request = await httpService.post("/createUser", user);
+        console.log(request);
+      } catch ({ data }) {
+        console.log(data);
+      }
     },
   });
   return (

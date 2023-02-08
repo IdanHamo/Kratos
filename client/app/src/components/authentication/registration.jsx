@@ -46,6 +46,7 @@ const Registration = () => {
         email: values.email,
         password: values.password,
       };
+      console.log(user);
 
       try {
         const request = await httpService.post("/createUser", user);

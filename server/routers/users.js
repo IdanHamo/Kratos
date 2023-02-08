@@ -6,6 +6,7 @@ const router = express.Router();
 const { User, validateUser } = require("../model/users");
 
 router.post("/createUser", async (req, res) => {
+  console.log(req.body);
   const { error } = validateUser(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
@@ -18,3 +19,5 @@ router.post("/createUser", async (req, res) => {
   await user.save();
   return res.status(200).send(user);
 });
+
+module.exports = router;

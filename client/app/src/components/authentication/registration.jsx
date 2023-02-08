@@ -2,6 +2,7 @@ import { useFormik } from "formik";
 import Joi from "joi";
 import { useState } from "react";
 import httpService from "../../services/httpService";
+import { createUser } from "../../services/userService";
 const Registration = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -49,10 +50,10 @@ const Registration = () => {
       console.log(user);
 
       try {
-        const request = await httpService.post("/createUser", user);
+        const request = await createUser(user);
         console.log(request);
-      } catch ({ data }) {
-        console.log(data);
+      } catch ({ response }) {
+        console.log(response.data);
       }
     },
   });
@@ -68,6 +69,7 @@ const Registration = () => {
           noValidate
           onSubmit={form.handleSubmit}
         >
+          {error && <div className="input">{error}</div>}
           <input
             type="text"
             className="input mb-4"

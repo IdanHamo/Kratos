@@ -5,6 +5,7 @@ import Footer from "./components/global/footer";
 import { Route, Routes } from "react-router-dom";
 import Home from "./components/pages/home";
 import Registration from "./components/authentication/registration";
+import Login from "./components/authentication/login";
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
       <div className="grow">
         <Routes>
           <Route path="/" element={<Home />}></Route>
-          <Route path="/register" element={<Registration />}></Route>
+          <Route path="/registration" element={<Registration />}></Route>
+          <Route path="/login" element={<Login />}></Route>
         </Routes>
       </div>
       <footer>

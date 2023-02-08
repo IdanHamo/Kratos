@@ -3,7 +3,27 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
 const router = express.Router();
 
-const { User, validateUser } = require("../model/users");
+const { User, validateUser, validateUserLogin } = require("../model/users");
+
+router.get("/login", async (req, res) => {
+  console.log(req.body);
+
+  const { error } = validateUserLogin(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
+
+  let user = await User.findOne({ username: req.body.username });
+  if (!user) return res.status(400).send("המשתמש אינו קיים");
+
+  const validatePassword = await bcrypt.compare(
+    req.body.password,
+    user.password
+  );
+  if (!validatePassword)
+    return res.status(400).send("השם משתמש או הסיסמא אינם נכונים");
+
+  const token = user.generateAuthToken();
+  return res.status(200).send(token);
+});
 
 router.post("/createUser", async (req, res) => {
   console.log(req.body);

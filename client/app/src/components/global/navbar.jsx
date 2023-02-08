@@ -1,13 +1,23 @@
 import { useState } from "react";
 
 import { NavLink } from "react-router-dom";
-import MenuIcon from "@mui/icons-material/Menu";
+
 export default function Navbar() {
   const [showNavbar, setShowNavbar] = useState(false);
 
   const handleShowNavbar = () => {
     setShowNavbar(!showNavbar);
   };
+
+  const links = [
+    { linkName: "בית", to: "/" },
+    { linkName: "עלינו", to: "/about" },
+    { linkName: "יצירת קשר", to: "/contact" },
+  ];
+  const options = [
+    { linkName: "הרשמה", to: "/registration" },
+    { linkName: "התחברות", to: "/login" },
+  ];
 
   return (
     <>
@@ -19,23 +29,22 @@ export default function Navbar() {
             </NavLink>
           </div>
           <ul className="links">
-            <li>
-              <NavLink to="/">בית</NavLink>
-            </li>
-            <li>
-              <NavLink to="/about">עלינו</NavLink>
-            </li>
-            <li>
-              <NavLink to="/contact">יצירת קשר</NavLink>
-            </li>
+            {links.map((link) => {
+              return (
+                <li>
+                  <NavLink to={link.to}>{link.linkName}</NavLink>
+                </li>
+              );
+            })}
           </ul>
           <div>
-            <NavLink className="action_btn ml-5" to="/register">
-              הרשמה
-            </NavLink>
-            <NavLink className="action_btn" to="/login">
-              התחברות
-            </NavLink>
+            {options.map((option) => {
+              return (
+                <NavLink className="action_btn ml-5" to={option.to}>
+                  {option.linkName}
+                </NavLink>
+              );
+            })}
           </div>
           <div className="toggle_btn" onClick={handleShowNavbar}>
             <i
@@ -44,23 +53,21 @@ export default function Navbar() {
           </div>
         </nav>
         <div className={`dropdown_menu ${showNavbar && "open"}`}>
+          {links.map((link) => {
+            return (
+              <li>
+                <NavLink to={link.to}>{link.linkName}</NavLink>
+              </li>
+            );
+          })}
           <li>
-            <NavLink to="/">Home</NavLink>
-          </li>
-          <li>
-            <NavLink to="/about">Anout</NavLink>
-          </li>
-          <li>
-            <NavLink to="/contact">Hsdfome</NavLink>
-          </li>
-
-          <li>
-            <NavLink className="action_btn" to="/register">
-              Signup
-            </NavLink>
-            <NavLink className="action_btn" to="/login">
-              Login
-            </NavLink>
+            {options.map((option) => {
+              return (
+                <NavLink className="action_btn ml-5" to={option.to}>
+                  {option.linkName}
+                </NavLink>
+              );
+            })}
           </li>
         </div>
       </div>

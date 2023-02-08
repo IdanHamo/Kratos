@@ -56,11 +56,13 @@ header {
 .logo a {
   font-size: 1.5rem;
   font-weight: bold;
+  opacity: 0.9;
 }
 
 .links {
   display: flex;
   gap: 2rem;
+  margin-top: 15px;
 }
 
 .toggle_btn {
@@ -71,7 +73,7 @@ header {
 }
 
 .action_btn {
-  background-color: orange;
+  background-color: gray;
   color: white;
   padding: 0.5rem 1rem;
   border: none;
@@ -106,7 +108,7 @@ header {
   transition: height 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 .dropdown_menu.open {
-  height: 240px;
+  height: 200px;
 }
 .dropdown_menu li {
   padding: 0.7rem;
@@ -156,7 +158,8 @@ header {
   bottom: 0;
   width: 75%;
   height: 7px;
-right: 11px;  background-color: #df204d !important;
+  right: 11px;
+  background-color: #df204d !important;
   border-radius: 10px;
 }
 .registration-secondary-headline {

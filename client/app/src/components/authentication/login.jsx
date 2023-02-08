@@ -1,11 +1,13 @@
 import { useFormik } from "formik";
 import Joi from "joi";
 import { useState } from "react";
-import httpService from "../../services/httpService";
 import { login } from "../../services/userService";
+import { useNavigate } from "react-router-dom";
 const Login = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const navigate = useNavigate();
+
   const form = useFormik({
     validateOnMount: true,
     initialValues: {
@@ -32,13 +34,12 @@ const Login = () => {
         username: values.username,
         password: values.password,
       };
-      console.log(user);
 
       try {
-        const { data } = await login(user);
-        console.log(data);
-      } catch ({ data }) {
-        console.log(data);
+        const response = await login(user);
+        navigate("/");
+      } catch ({ response }) {
+        setError(response.data);
       }
     },
   });
@@ -54,6 +55,8 @@ const Login = () => {
           noValidate
           onSubmit={form.handleSubmit}
         >
+          {error && <div className="error-alert">{error}</div>}
+
           <input
             type="text"
             className="input mb-4"

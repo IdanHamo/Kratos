@@ -39,7 +39,7 @@ const Registration = () => {
     async onSubmit(values) {
       const { password, confirmPassword } = values;
       if (password !== confirmPassword) {
-        setError("The passwords not match");
+        setError("הסיסמאות אינן זהות");
         return;
       }
       const user = {
@@ -47,13 +47,14 @@ const Registration = () => {
         email: values.email,
         password: values.password,
       };
-      console.log(user);
 
       try {
-        const request = await createUser(user);
-        console.log(request);
+        const { data } = await createUser(user);
+        setSuccess(data.message);
+        setError("");
       } catch ({ response }) {
-        console.log(response.data);
+        setError(response.data);
+        setSuccess("");
       }
     },
   });
@@ -69,7 +70,8 @@ const Registration = () => {
           noValidate
           onSubmit={form.handleSubmit}
         >
-          {error && <div className="input">{error}</div>}
+          {error && <div className="error-alert">{error}</div>}
+          {success && <div className="success-alert">{success}</div>}
           <input
             type="text"
             className="input mb-4"

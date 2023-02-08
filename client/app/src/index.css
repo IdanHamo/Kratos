@@ -142,9 +142,6 @@ header {
   }
 }
 
-.registration-container {
-}
-
 .registration-headline {
   color: #df204d !important;
   font-weight: bold;
@@ -173,6 +170,30 @@ header {
   border-radius: 7px;
   height: 40px;
   padding-right: 15px;
+  color: black;
+  font-weight: bold;
+}
+.error-alert {
+  width: 100%;
+  border-radius: 7px;
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
+  margin-bottom: 20px;
+  text-align: center;
+  background-color: rgb(102, 2, 2) !important;
+  color: white !important;
+  font-weight: bold;
+}
+.success-alert {
+  width: 100%;
+  border-radius: 7px;
+  padding-top: 15px !important;
+  padding-bottom: 15px !important;
+  margin-bottom: 20px;
+  text-align: center;
+  background-color: rgb(2, 102, 7) !important;
+  color: white !important;
+  font-weight: bold;
 }
 
 .confirmButton {
